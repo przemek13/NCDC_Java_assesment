@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="BOOK'S STORAGE">
+    <meta name="keywords" content=”html,javascript,css”>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+</head>
+<body>
+<header class="background-blue">
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+            <li><a href="http://localhost:8080/records/books">List</a></li>
+            <li><a href="http://localhost:8080/records/books/add">New record</a></li>
+            <li><a href="http://localhost:8080/records/books/delete">Delete record</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="description">
+        <form action="#" th:action="@{/records/books/add}" th:object="${book}" method="post">
+            <table>
+                <tr><h3>Complete the form</h3></tr>
+                <tr>
+                    <td>Author</td>
+                    <td><input type="text" th:field="*{author}" /></td>
+                    <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" th:field="*{title}" /></td>
+                    <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+                </tr>
+                <tr>
+                    <td>ISBN</td>
+                    <td><input type="text" th:field="*{isbn}" /></td>
+                    <td th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">ISBN Error</td>
+                </tr>
+            </table>
+            <input type="submit" value="Add" />
+        </form>
+    </section>
+</main>
+<footer class="background-blue"></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="BOOK'S STORAGE">
+    <meta name="keywords" content=”html,javascript,css”>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+</head>
+<body>
+<header class="background-blue">
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8080/">Home</a></li>
+            <li><a href="http://localhost:8080/records/books">List</a></li>
+            <li><a href="http://localhost:8080/records/books/add">New record</a></li>
+            <li><a href="http://localhost:8080/records/books/delete">Delete record</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="description">
+        <form>
+            <table>
+                <tr>
+                    <h3>THE LIST OF BOOKS</h3>
+                    <div class="underline"></div>
+                </tr>
+                <div th:if="${#lists.isEmpty(books)}">
+                    <tr><h3>No records</h3></tr>
+                </div>
+                <div th:if="${not #lists.isEmpty(books)}">
+                    <tr>
+                        <td><b>Author</b></td>
+                        <td><b>Title</b></td>
+                        <td><b>ISBN</b></td>
+                    </tr>
+                </div>
+                <tr th:each="book : *{books}">
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.isbn}"></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer class="background-blue"></footer>
+</body>
+</html>
