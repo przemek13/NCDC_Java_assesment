@@ -11,7 +11,7 @@ public class RecordService {
 
     private final BookRepository bookRepository;
 
-    private RecordService(BookRepository bookRepository) {
+    public RecordService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 

@@ -8,39 +8,33 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/records")
-public class RecordController{
+public class RecordController {
 
     private final RecordService recordService;
 
-    public RecordController(RecordService recordService){
+    public RecordController(RecordService recordService) {
         this.recordService = recordService;
     }
 
-    @GetMapping()
-    public ModelAndView records() {
-        ModelAndView modelAndView = new ModelAndView("/records/records");
-        return modelAndView;
-    }
-
     @GetMapping("/books")
-    public ModelAndView forwardersList() {
+    public ModelAndView getAllBooks() {
         ModelAndView modelAndView = new ModelAndView("/records/books");
         modelAndView.addObject("books", recordService.getAllBooks());
         return modelAndView;
     }
 
     @GetMapping("/books/add")
-    public ModelAndView addForwarderForm(BookDTO book){
+    public ModelAndView addBookForm(BookDTO book) {
         ModelAndView modelAndView = new ModelAndView("/records/book_add");
         modelAndView.addObject("book", book);
         return modelAndView;
     }
 
     @PostMapping("/books/add")
-    public ModelAndView saveForwarder(@Valid @ModelAttribute("book") BookDTO book, BindingResult br){
+    public ModelAndView addBook(@Valid @ModelAttribute("book") BookDTO book, BindingResult br) {
         ModelAndView modelAndViewError = new ModelAndView("/records/book_add");
         modelAndViewError.addObject("book", book);
-        if(br.hasErrors()){
+        if (br.hasErrors()) {
             return modelAndViewError;
         }
         recordService.addBook(book);
@@ -50,7 +44,7 @@ public class RecordController{
     }
 
     @GetMapping("/books/delete")
-    public ModelAndView deleteForwarderForm(BookDTO book){
+    public ModelAndView deleteBookForm(BookDTO book) {
         ModelAndView modelAndView = new ModelAndView("/records/book_delete");
         modelAndView.addObject("book", book);
         modelAndView.addObject("books", recordService.getAllBooks());
@@ -58,12 +52,11 @@ public class RecordController{
     }
 
     @PostMapping("/books/delete")
-    public ModelAndView deleteForwarder(@ModelAttribute("book") BookDTO book){
+    public ModelAndView deleteBook(@ModelAttribute("book") BookDTO book) {
         ModelAndView modelAndViewOK;
-        if (book.getBookID()==0) {
+        if (book.getBookID() == 0) {
             modelAndViewOK = new ModelAndView("redirect:/records/books");
-        }
-        else {
+        } else {
             modelAndViewOK = new ModelAndView("/records/book_delete_success");
             modelAndViewOK.addObject("book", book.getBookID());
             recordService.deleteBook(book);

@@ -6,12 +6,10 @@ import javax.validation.constraints.Pattern;
 public class BookDTO {
 
     private long bookID;
-    @NotBlank(message = "Field can not be empty or consist of only white characters")
-    @Pattern(regexp = "^A[a-z]*+\\s+[A-Z][a-z]*|^[A-Z][a-z]*+\\s+A[a-z]*", message = "Author forename or surname should start with \"A\" letter")
+    @Pattern(regexp = "(^A[a-z|A-Z]*+\\s+[a-z|A-Z][a-z|A-Z]*)|(^[a-z|A-Z][a-z|A-Z]*+\\s+A[a-z|A-Z]*)", message = "Author must have forename and surname and one of them should start with \"A\" letter")
     private String author;
     @NotBlank(message = "Field can not be empty or consist of only white characters")
     private String title;
-    @NotBlank(message = "Field can not be empty or consist of only white characters")
     @Pattern(regexp = "^(?:ISBN(?:-13)?:? )?(?=[0-9]{13}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)97[89][- ]?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9]$", message = "Please insert the number according to ISBN standard")
     private String isbn;
 
