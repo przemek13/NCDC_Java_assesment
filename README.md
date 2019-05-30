@@ -25,7 +25,7 @@ In the command line shell:
 
 The Project should have built automatically.
 
-4. Insert gradle bootRun. 
+4. Insert: gradle bootRun. 
 
 The application should run and be ready to use on localhost:8080 port of your browser.
 ```
@@ -37,7 +37,7 @@ You are able to save, retrieve and delete the data, using dedicated forms and bu
 ```
 The acceptable record format is:
 
-1.  Author – Author’s forname and surname separated by a space. One of these names must start with “A” letter.
+1. Author – Author’s forename and surname separated by a space. One of these names must start with “A” letter.
 2. Title – can not be empty or consist of only white characters.
 3. ISBN – number according to ISBN-13 standard.
 ```
