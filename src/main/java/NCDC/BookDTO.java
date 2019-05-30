@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 public class BookDTO {
 
     private long bookID;
-    @Pattern(regexp = "(^A[a-z|A-Z]*+\\s+[a-z|A-Z][a-z|A-Z]*)|(^[a-z|A-Z][a-z|A-Z]*+\\s+A[a-z|A-Z]*)", message = "Author must have forename and surname and one of them should start with \"A\" letter")
+    @Pattern(regexp = "(^A[a-z|A-Z]*+\\s+[a-z|A-Z][a-z|A-Z]*)|(^[a-z|A-Z][a-z|A-Z]*+\\s+A[a-z|A-Z]*)", message = "Author’s forname and surname separated by a space. One of these names must start with \"A\" letter")
     private String author;
     @NotBlank(message = "Field can not be empty or consist of only white characters")
     private String title;

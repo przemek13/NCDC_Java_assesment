@@ -19,7 +19,7 @@ public class BookRepositoryTest {
     @Autowired
     private BookRepository testBookRepository;
 
-    private final Book testBook = new Book("Adam Mickiewicz");
+    private final Book testBook = new Book("Adam Mickiewicz", "Dziady", "978-3-16-148410-0");
 
     @Test
     public void returnWhenNoData() {
