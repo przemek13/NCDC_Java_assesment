@@ -23,7 +23,7 @@ public class RecordController {
     private ModelAndView getAllBooks() {
         ModelAndView modelAndView = new ModelAndView("/records/books");
         modelAndView.addObject("books", recordService.getAllBooks());
-        LOG.info("The record's list was successfully retrieved and added to the view");
+        LOG.trace("The record's list was successfully retrieved and added to the view");
         return modelAndView;
     }
 
@@ -31,7 +31,7 @@ public class RecordController {
     private ModelAndView addBookForm(BookDTO book) {
         ModelAndView modelAndView = new ModelAndView("/records/book_add");
         modelAndView.addObject("book", book);
-        LOG.info("The form to add new record was added to the view");
+        LOG.trace("The form to add new record was added to the view");
         return modelAndView;
     }
 
@@ -44,7 +44,7 @@ public class RecordController {
             return modelAndViewError;
         }
         recordService.addBook(book);
-        LOG.info("The record was successfully added to the list");
+        LOG.trace("The record was successfully added to the list");
         ModelAndView modelAndViewOK = new ModelAndView("redirect:/records/books");
         return modelAndViewOK;
     }
@@ -54,7 +54,7 @@ public class RecordController {
         ModelAndView modelAndView = new ModelAndView("/records/book_delete");
         modelAndView.addObject("book", book);
         modelAndView.addObject("books", recordService.getAllBooks());
-        LOG.info("The list of records to delete was added to the view");
+        LOG.trace("The list of records to delete was added to the view");
         return modelAndView;
     }
 
@@ -68,7 +68,7 @@ public class RecordController {
             modelAndViewOK = new ModelAndView("/records/book_delete_success");
             modelAndViewOK.addObject("book", book.getBookID());
             recordService.deleteBook(book);
-            LOG.info("The record was successfully deleted");
+            LOG.trace("The record was successfully deleted");
         }
         return modelAndViewOK;
     }
