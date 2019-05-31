@@ -1,7 +1,7 @@
 # NCDC Java assessment
 
 This is a simple web app realized as an answer to Java assessment task for NCDC company.
-It may be used as a simple storage of book’s records.
+It may be used as a simple storage of books records.
 
 ## Getting started
 
