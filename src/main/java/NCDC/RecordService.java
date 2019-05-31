@@ -27,13 +27,13 @@ public class RecordService {
         bookRepository.deleteById(bookDTO.getBookID());
     }
 
-    Book dtoToBook(BookDTO bookDTO) {
+    private Book dtoToBook(BookDTO bookDTO) {
         var book = new Book();
         BeanUtils.copyProperties(bookDTO, book);
         return book;
     }
 
-    BookDTO bookToDTO(Book book) {
+    private BookDTO bookToDTO(Book book) {
         var bookDTO = new BookDTO();
         BeanUtils.copyProperties(book, bookDTO);
         return bookDTO;

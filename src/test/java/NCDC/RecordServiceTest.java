@@ -21,7 +21,7 @@ public class RecordServiceTest {
 
     private RecordService testRecordService;
 
-    private BookDTO testBook = new BookDTO();
+    private final BookDTO testBook = new BookDTO();
 
     @Before
     public void setUpTestBookService() {

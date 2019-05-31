@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class BookValidationTest {
 
     private Validator validator;
-    private BookDTO testBook = new BookDTO();
+    private final BookDTO testBook = new BookDTO();
 
     @Before
     public void setUp() {
